@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7eee5">
+
+<title>Untuk kyaa</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:#f8f0e8;
+    color:#4b3730;
+    overflow-x:hidden;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+#loading{
+    position:fixed;
+    inset:0;
+    background:#f8f0e8;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    transition:opacity .8s ease, visibility .8s ease;
+}
+
+#loading.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-icon{
+    font-size:45px;
+    animation:float 2s infinite ease-in-out;
+}
+
+.loading-text{
+    margin-top:15px;
+    font-size:12px;
+    letter-spacing:3px;
+    color:#967466;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg-circle{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(1px);
+    pointer-events:none;
+    z-index:-1;
+}
+
+.circle1{
+    width:300px;
+    height:300px;
+    background:#f1d9c8;
+    top:-120px;
+    left:-100px;
+    opacity:.5;
+}
+
+.circle2{
+    width:280px;
+    height:280px;
+    background:#ead2c4;
+    bottom:-100px;
+    right:-100px;
+    opacity:.5;
+}
+
+.floating{
+    position:fixed;
+    pointer-events:none;
+    color:#b28c7a;
+    opacity:.2;
+    animation:rise 10s linear infinite;
+    z-index:0;
+}
+
+.f1{left:10%;bottom:-30px;animation-delay:1s}
+.f2{left:30%;bottom:-30px;animation-delay:4s}
+.f3{left:70%;bottom:-30px;animation-delay:2s}
+.f4{left:90%;bottom:-30px;animation-delay:6s}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding:35px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+}
+
+.hero-content{
+    max-width:650px;
+    animation:appear 1.3s ease;
+}
+
+.mini{
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#9a7565;
+    margin-bottom:22px;
+}
+
+.hero-icon{
+    width:85px;
+    height:85px;
+    margin:auto;
+    border-radius:50%;
+    background:rgba(255,255,255,.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:38px;
+    box-shadow:0 15px 40px rgba(91,60,45,.1);
+    animation:float 3s infinite ease-in-out;
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(40px,10vw,70px);
+    font-weight:500;
+    line-height:1.08;
+    margin-top:28px;
+    color:#48332b;
+}
+
+.hero p{
+    max-width:470px;
+    margin:25px auto 0;
+    color:#806b61;
+    line-height:1.9;
+    font-size:14px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:35px;
+    padding:14px 23px;
+    border-radius:50px;
+    text-decoration:none;
+    background:#67463a;
+    color:#fff;
+    font-size:13px;
+    box-shadow:0 12px 30px rgba(103,70,58,.2);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 17px 35px rgba(103,70,58,.3);
+}
+
+.scroll{
+    position:absolute;
+    bottom:25px;
+    font-size:10px;
+    letter-spacing:2px;
+    color:#a88a7b;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:90px 20px;
+    max-width:850px;
+    margin:auto;
+}
+
+.section-label{
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#a37c6b;
+    text-align:center;
+    margin-bottom:12px;
+}
+
+.section-title{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(30px,7vw,46px);
+    font-weight:500;
+    text-align:center;
+    color:#49342c;
+    margin-bottom:35px;
+}
+
+/* =========================
+   SURAT
+========================= */
+
+.letter{
+    background:rgba(255,255,255,.68);
+    border:1px solid rgba(115,76,59,.1);
+    border-radius:25px;
+    padding:35px 27px;
+    box-shadow:0 20px 60px rgba(75,48,35,.08);
+    position:relative;
+}
+
+.letter::before{
+    content:"";
+    position:absolute;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#ead2c2;
+    top:-18px;
+    right:30px;
+    opacity:.6;
+}
+
+.letter p{
+    font-family:'Playfair Display',serif;
+    font-size:16px;
+    line-height:2;
+    color:#604940;
+    margin-bottom:20px;
+}
+
+.letter p:last-child{
+    margin-bottom:0;
+}
+
+.highlight{
+    color:#805444;
+    font-weight:600;
+}
+
+/* =========================
+   RESEP SEMANGAT
+========================= */
+
+.recipe{
+    background:#fffaf6;
+    border-radius:25px;
+    padding:30px 25px;
+    box-shadow:0 20px 50px rgba(70,45,35,.08);
+    border:1px dashed #d5b6a4;
+}
+
+.recipe-title{
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    margin-bottom:25px;
+}
+
+.ingredient{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 5px;
+    border-bottom:1px solid #eadbd1;
+    font-size:13px;
+}
+
+.ingredient:last-child{
+    border-bottom:none;
+}
+
+.recipe-note{
+    margin-top:22px;
+    padding:18px;
+    border-radius:15px;
+    background:#f5e8de;
+    font-family:'Playfair Display',serif;
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* =========================
+   GALERI
+========================= */
+
+/* =========================
+   GALERI POLAROID
+========================= */
+
+/* =========================
+   GALERI POLAROID
+========================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+
+    /* Jarak antar foto */
+    column-gap:32px;
+    row-gap:42px;
+
+    /* Jarak dari pinggir */
+    padding:25px 18px 40px;
+}
+
+.photo{
+    width:100%;
+    aspect-ratio:3 / 3.7;
+
+    padding:10px 10px 38px;
+
+    background:#fffdf9;
+
+    border-radius:3px;
+
+    box-shadow:
+        0 12px 28px rgba(70,45,35,.14),
+        0 3px 7px rgba(70,45,35,.07);
+
+    overflow:hidden;
+    position:relative;
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+
+    display:block;
+    object-fit:cover;
+
+    transition:transform .5s ease;
+}
+
+
+/* =========================
+   POSISI FOTO
+========================= */
+
+.photo:nth-child(1){
+    transform:rotate(-3deg);
+}
+
+.photo:nth-child(2){
+    transform:rotate(3deg) translateY(15px);
+}
+
+.photo:nth-child(3){
+    transform:rotate(2deg) translateY(-5px);
+}
+
+.photo:nth-child(4){
+    transform:rotate(-3deg) translateY(15px);
+}
+
+.photo:nth-child(5){
+    transform:rotate(-2deg) translateY(-5px);
+}
+
+.photo:nth-child(6){
+    transform:rotate(3deg) translateY(12px);
+}
+
+
+/* =========================
+   EFEK SAAT DISENTUH
+========================= */
+
+.photo:hover{
+    transform:
+        rotate(0deg)
+        translateY(-8px)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 40px rgba(70,45,35,.2);
+
+    z-index:5;
+}
+
+.photo:hover img{
+    transform:scale(1.04);
+}
+
+
+/* =========================
+   HP KECIL
+========================= */
+
+@media(max-width:380px){
+
+    .gallery{
+        column-gap:24px;
+        row-gap:36px;
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+}
+
+/* =========================
+   DOA
+========================= */
+
+.prayer{
+    text-align:center;
+    background:#67463a;
+    color:#fff;
+    border-radius:30px;
+    padding:45px 28px;
+    box-shadow:0 25px 60px rgba(103,70,58,.22);
+}
+
+.prayer-icon{
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.prayer h2{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    font-weight:500;
+    margin-bottom:22px;
+}
+
+.prayer p{
+    font-family:'Playfair Display',serif;
+    line-height:2;
+    font-size:15px;
+    color:#f8eee8;
+}
+
+/* =========================
+   CITA-CITA
+========================= */
+
+.future{
+    text-align:center;
+}
+
+.future-box{
+    padding:35px 25px;
+    border-radius:25px;
+    background:rgba(255,255,255,.65);
+    box-shadow:0 20px 50px rgba(70,45,35,.07);
+}
+
+.future-box .big{
+    font-family:'Playfair Display',serif;
+    font-size:25px;
+    line-height:1.7;
+    color:#67463a;
+}
+
+.future-box p{
+    margin-top:18px;
+    color:#806b61;
+    font-size:13px;
+    line-height:1.9;
+}
+
+/* =========================
+   ENDING
+========================= */
+
+.ending{
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:70px 22px;
+}
+
+.ending-content{
+    max-width:600px;
+}
+
+.ending-icon{
+    font-size:45px;
+    margin-bottom:25px;
+}
+
+.ending h2{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(35px,8vw,55px);
+    font-weight:500;
+    line-height:1.2;
+}
+
+.ending p{
+    margin-top:25px;
+    color:#806b61;
+    line-height:2;
+    font-family:'Playfair Display',serif;
+    font-size:16px;
+}
+
+.signature{
+    margin-top:35px;
+    color:#9b7767;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:25px;
+    font-size:10px;
+    color:#a58b7e;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-9px);
+    }
+}
+
+@keyframes rise{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+    20%{
+        opacity:.2;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(180deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    section{
+        padding:75px 17px;
+    }
+
+    .letter{
+        padding:30px 21px;
+    }
+
+    .letter p{
+        font-size:15px;
+        line-height:1.9;
+    }
+
+    .gallery{
+        gap:10px;
+    }
+
+    .photo{
+        border-radius:15px;
+    }
+
+    .prayer{
+        padding:38px 21px;
+    }
+}
+</style>
+</head>
+
+<body>
+    <audio id="music" loop preload="auto">
+    <source src="kya1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- LOADING -->
+<div id="loading">
+    <div class="loader-icon">🍳</div>
+    <div class="loading-text">sebentar ya...</div>
+</div>
+
+<!-- ORNAMEN -->
+<div class="bg-circle circle1"></div>
+<div class="bg-circle circle2"></div>
+
+<div class="floating f1">♡</div>
+<div class="floating f2">✦</div>
+<div class="floating f3">♡</div>
+<div class="floating f4">✧</div>
+
+
+<!-- =========================
+     PEMBUKA
+========================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="mini">sedikit pesan untuk mu🗿</div>
+
+        <div class="hero-icon">
+            👩‍🍳
+        </div>
+
+        <h1>
+            Untuk cewe Bondol satu ini🗿<br>
+            
+        </h1>
+
+        <p>
+            aku cuma pen ngasi kata kata doang si sikikk aaa🗿
+        </p>
+
+        <button class="btn" onclick="startWeb()">
+    Baca pesannya
+    <span>↓</span>
+</button>
+
+    </div>
+
+    <div class="scroll">
+        GESER KE BAWAH
+    </div>
+
+</header>
+
+
+<!-- =========================
+     SURAT
+========================= -->
+
+<section id="surat">
+
+    <div class="section-label">
+        sebuah pesan
+    </div>
+
+    <h2 class="section-title">
+        Untuk youu🗿
+    </h2>
+
+    <div class="letter">
+
+        <p>
+            Aku cuma pen bilang 🗿, <span class="highlight">semangat terus yaa.</span>
+            Aku tauu belajar sesuatu ygg baru itu gaa selalu gampang 🤏🏻
+            Apalagi kalauu harus terus mencoba, mengulang, dan kadang
+            hasilnya belum sesuai dengan apa ygg kita harapkan🤏🏻
+        </p>
+
+        <p>
+            Kalau suatu hari masakan mu gagall atau gosong🗿 jangan langsung merasa
+            kalau muuu ituu gaaa bisaa Namanya juga belajar yee kann 🗿Ada resep yang
+            berhasil, ada jugaa yg perlu diperbaiki, ada juga yg mungkin harus
+            dicoba berkali-kali sampai akhirnya ketemu rasa yg pas setelah ke asinan atau kemanisan🗿
+        </p>
+
+        <p>
+            yaa kayaa gitu jugaa dengan alur idupp gaa haruss langsung hebat,
+            Nggak harus jugaa langsung sempurna, soal nyaa mu udaa sempurna siee asekk 🗿 yg penting muu terus mau belajarr smaa terus mencobaaa
+        </p>
+
+        <p>
+            Mungkin sekarang muu masii belajarr banyakk hal tentang
+            masakan, tentang dapur, tentang rasa, tentang bagaimana
+            membuat sesuatu ygg awalnya sederhana menjadi sesuatu
+            ygg bisa membuat orang lain tersenyum ehee🗿
+        </p>
+
+        <p>
+            Dan yaa akuu harap muu jangan pernah malu dengan proses itu🗿 gosong cuma sekali nya jangan malu lak yaa🗿
+            Karena suatu hari nanti🤏🏻 semua hal yg lagii muu pelajari inii
+            bisa jadi bekal untuk mewujudkan sesuatu yang
+            lebih besar ehee
+        </p>
+
+        <p>
+            mu jugaa tadi bilang kalau pengen punya usaha sendiri ehee🤏🏻
+            mogaa keinginan ituu gaa cuma berhenti sebagai sebuah
+            angan-angan🤏🏻 mogaa pelan pelan muu bisaa wujudkan mimpi itu yaaaa🤏🏻
+        </p>
+
+        <p>
+            Jadi kalau lagii capee istirahat sebentar ajaaa
+            Kalau Lagii bingung, pelajari lagi pelan-pelan, kalau ga juga cuma bawa mandi mana tau dapat kek tadi kan🗿
+            <span class="highlight">Tapi jangan berhenti hanya karena
+            hari ini belum berhasil yaaa🤏🏻</span>
+        </p>
+
+        <p>
+            Karnaa mungkin, dapur tempat muu belajar hari ini
+            sedang menjadi awal dari cerita besar yang belum muu tahu
+            akhirnya, jsdii yaaa semangatttt trus yakk
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RESEP SEMANGAT
+========================= -->
+
+<section>
+
+    <div class="section-label">
+        resep hari ini
+    </div>
+
+    <h2 class="section-title">
+        Resep Untuk Tetap Berjuang
+    </h2>
+
+    <div class="recipe">
+
+        <div class="recipe-title">
+            🍰 Resep Semangat
+        </div>
+
+        <div class="ingredient">
+            <span>Keberanian</span>
+            <strong>1 porsi</strong>
+        </div>
+
+        <div class="ingredient">
+            <span>Kesabaran</span>
+            <strong>Secukupnya</strong>
+        </div>
+
+        <div class="ingredient">
+            <span>Usaha</span>
+            <strong>Jangan pelit</strong>
+        </div>
+
+        <div class="ingredient">
+            <span>Pantang menyerah</span>
+            <strong>Sebanyak mungkin</strong>
+        </div>
+
+        <div class="ingredient">
+            <span>Percaya pada diri sendiri</span>
+            <strong>Setiap hari</strong>
+        </div>
+
+        <div class="recipe-note">
+            <strong>Cara membuat:</strong><br><br>
+
+            Campurkan semuanya dalam setiap langkah perjalanan muu🤏🏻
+            Kalau hasilnya belum sesuai, jangan dibuang.
+            Perbaiki, pelajari, lalu coba lagi.
+            Karnaa gaa semua masakan langsung berhasil pada percobaan
+            pertama ehee
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALERI
+========================= -->
+
+<section>
+
+    <div class="section-label">
+        beberapa potret
+    </div>
+
+    <h2 class="section-title">
+        Tentang muu ehee 📸
+    </h2>
+
+<div class="gallery">
+
+    <div class="photo">
+        <img src="photo1.jpg" alt="Foto 1">
+    </div>
+
+    <div class="photo">
+        <img src="photo2.jpg" alt="Foto 2">
+    </div>
+
+    <div class="photo">
+        <img src="photo3.jpg" alt="Foto 3">
+    </div>
+
+    <div class="photo">
+        <img src="photo4.jpg" alt="Foto 4">
+    </div>
+
+    <div class="photo">
+        <img src="photo5.jpg" alt="Foto 5">
+    </div>
+
+    <div class="photo">
+        <img src="photo6.jpg" alt="Foto 6">
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     DOA
+========================= -->
+
+<section>
+
+    <div class="prayer">
+
+        <div class="prayer-icon">
+            🤲
+        </div>
+
+        <h2>
+            Sebuah Doa Untuk youu🗿 gatau kepikiran buat ini🗿
+        </h2>
+
+        <p>
+            Semoga setiap langkah ygg muu jalanii selalu diberi kemudahan yaa ehee
+        </p>
+
+        <p>
+            Semoga ilmu ygg muu pelajari menjadi sesuatu
+            ygg bermanfaat dan bisa bawaa muu lebih dekett ke cita cita muu ehee
+        </p>
+
+        <p>
+            Semoga suatu hari nanti muu bisa
+            punyaa usaha yg mu impikan ituu
+            Semoga rezeki muu dilancarkan, usaha mu dimudahkan,
+            dan semua kerja keras muu mendapatkan hasil yang baik🤏🏻
+        </p>
+
+        <p>
+            Dan ketika hari iru tibaa
+            semoga muu bisa melihat kembali semua proses muu
+            dan menyadari bahwa setiap lelah, setiap kegagalan,
+            dan setiap kali muu mencoba lagi ternyata
+            punya arti ehee🤏🏻
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MASA DEPAN
+========================= -->
+
+<section class="future">
+
+    <div class="section-label">
+        suatu hari nanti
+    </div>
+
+    <h2 class="section-title">
+        Tentang Mimpimu
+    </h2>
+
+    <div class="future-box">
+
+        <div class="big">
+            "Semoga suatu hari nanti,
+            nama yang sekarang masih belajar
+            bisa menjadi nama yang berdiri
+            di depan usaha miliknya sendiri."
+        </div>
+
+        <p>
+            Nggak perlu terburu-buru.
+            Bangun semuanya pelan-pelan.
+            Belajar dulu, kumpulkan pengalaman,
+            nikmati prosesnya.
+        </p>
+
+        <p>
+            Karena mimpi yang besar juga dimulai
+            dari langkah-langkah kecil.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ENDING
+========================= -->
+
+<div class="ending">
+
+    <div class="ending-content">
+
+        <div class="ending-icon">
+            👩‍🍳🤍
+        </div>
+
+        <h2>
+            Tetap semangat yaa.
+        </h2>
+
+        <p>
+            Terus belajar, terus mencoba,
+            dan jangan terlalu keras sama diri sendiri
+            ketika sesuatu belum berjalan sesuai rencana.
+        </p>
+
+        <p>
+            muu masih punya banyak waktu untuk belajar,
+            berkembang, dan mengejar apa ygg kamu inginkan ehee🤏🏻
+        </p>
+
+        <p>
+            Semoga suatu hari nanti,
+            muu bisa berdiri di tempat ygg selama ini
+            muu impikan dan berkata:
+            <br><br>
+            <strong>
+                "Akhirnya aku sampai juga."
+            </strong>
+        </p>
+
+        <div class="signature">
+            SEMOGA MIMPI ITU MENJADI NYATA YA KYA🤏🏻 ✦
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+    dibuat sebagai sedikit pengingat untuk terus berjuang 🤍
+</footer>
+
+
+<script>
+
+/* =========================
+   LOADING
+========================= */
+
+window.addEventListener("load", function(){
+
+    setTimeout(function(){
+
+        document.getElementById("loading")
+        .classList.add("hide");
+
+    }, 1200);
+
+});
+
+
+/* =========================
+   ANIMASI SAAT SCROLL
+========================= */
+
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.style.animation =
+                "appear .9s ease forwards";
+
+            }
+
+        });
+
+    },
+    {
+        threshold:.12
+    }
+);
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+
+/* =========================
+   KLIK FOTO
+========================= */
+
+document.querySelectorAll(".photo img")
+.forEach(img => {
+
+    img.addEventListener("click", function(){
+
+        this.style.transform =
+        this.style.transform === "scale(1.15)"
+        ? "scale(1)"
+        : "scale(1.15)";
+
+    });
+
+});
+
+function startWeb(){
+
+    const music = document.getElementById("music");
+
+    // Mulai dari volume 0
+    music.volume = 0;
+
+    // Putar musik setelah tombol ditekan
+    music.play().then(() => {
+
+        // Fade in selama 4 detik
+        let volume = 0;
+        const targetVolume = 0.45;
+        const duration = 4000;
+        const intervalTime = 100;
+        const step = targetVolume / (duration / intervalTime);
+
+        const fadeIn = setInterval(() => {
+
+            volume += step;
+
+            if(volume >= targetVolume){
+                volume = targetVolume;
+                clearInterval(fadeIn);
+            }
+
+            music.volume = volume;
+
+        }, intervalTime);
+
+    }).catch(() => {
+        console.log("Musik tidak dapat diputar.");
+    });
+
+    // Scroll ke surat
+    document.getElementById("surat").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
